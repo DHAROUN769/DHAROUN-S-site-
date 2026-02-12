@@ -1,122 +1,286 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Love Surprise 💗</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine 💖</title>
+
 <style>
+*{box-sizing:border-box}
+
 body{
-    margin:0;
-    background:#111;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    font-family:Arial;
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:black;
+  font-family:Arial, sans-serif;
 }
 
 .scene{
-    width:560px;
-    height:320px;
-    background:#f7f6f2;
-    border-radius:30px;
-    position:relative;
-    overflow:hidden;
+  width:95%;
+  max-width:900px;
+  height:480px;
+  background:#f7f6f2;
+  border-radius:30px;
+  position:relative;
+  overflow:hidden;
 }
 
+/* ================= TEDDY ================= */
 .teddy{
-    position:absolute;
-    left:25px;
-    bottom:40px;
-    font-size:65px;
+  position:absolute;
+  left:40px;
+  bottom:90px;
+}
+.t-head{
+  width:70px;height:70px;
+  background:#c49a6c;
+  border-radius:50%;
+  position:relative;
+}
+.eye{
+  width:6px;height:6px;
+  background:#000;
+  border-radius:50%;
+  position:absolute;top:28px;
+}
+.eye.l{left:18px}
+.eye.r{right:18px}
+.nose{
+  width:10px;height:8px;
+  background:#000;
+  border-radius:50%;
+  position:absolute;top:38px;left:30px;
+}
+.t-body{
+  width:60px;height:70px;
+  background:#c49a6c;
+  border-radius:20px;
+  margin:auto;
+}
+.hand{
+  position:absolute;
+  right:-30px;top:55px;
+  width:30px;height:6px;
+  background:#c49a6c;
+  border-radius:10px;
 }
 
-.big-heart{
-    position:absolute;
-    left:250px;
-    top:55px;
-    animation:pulse 2s infinite 6s;
-}
-
+/* ================= HEART ================= */
 .heart{
-    width:12px;
-    height:12px;
-    background:crimson;
-    position:absolute;
-    transform:rotate(-45deg);
-    opacity:0;
-    animation:fly 6s infinite;
+  position:absolute;
+  width:14px;height:14px;
+  background:crimson;
+  transform:rotate(-45deg);
 }
-.heart::before,.heart::after{
-    content:"";
-    width:12px;
-    height:12px;
-    background:crimson;
-    border-radius:50%;
-    position:absolute;
+.heart::before,
+.heart::after{
+  content:"";
+  position:absolute;
+  width:14px;height:14px;
+  background:crimson;
+  border-radius:50%;
 }
-.heart::before{top:-6px;left:0;}
-.heart::after{left:6px;top:0;}
+.heart::before{top:-7px;left:0}
+.heart::after{left:7px;top:0}
 
-/* heart positions */
-.h1{top:20px;left:40px;animation-delay:0s;}
-.h2{top:20px;left:60px;animation-delay:.2s;}
-.h3{top:20px;left:80px;animation-delay:.4s;}
-.h4{top:20px;left:100px;animation-delay:.6s;}
-.h5{top:35px;left:25px;animation-delay:.8s;}
-.h6{top:35px;left:45px;animation-delay:1s;}
-.h7{top:35px;left:65px;animation-delay:1.2s;}
-.h8{top:35px;left:85px;animation-delay:1.4s;}
-.h9{top:35px;left:105px;animation-delay:1.6s;}
-.h10{top:50px;left:55px;animation-delay:1.8s;}
-.h11{top:50px;left:75px;animation-delay:2s;}
-.h12{top:65px;left:65px;animation-delay:2.2s;}
-.h13{top:80px;left:75px;animation-delay:2.4s;}
-.h14{top:95px;left:75px;animation-delay:2.6s;}
-
-.text{
-    position:absolute;
-    bottom:25px;
-    width:100%;
-    text-align:center;
-    font-size:24px;
-    color:#e38aa0;
-    opacity:0;
-    animation:show 6s forwards;
+.heart-area{
+  position:absolute;
+  left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  width:260px;height:220px;
 }
 
-@keyframes fly{
-    0%{transform:translate(-190px,120px) rotate(-45deg) scale(0);opacity:0;}
-    40%{opacity:1;}
-    100%{opacity:1;transform:translate(0,0) rotate(-45deg) scale(1);}
+.fixed{
+  animation:pulse 1.6s infinite;
 }
-
 @keyframes pulse{
-    0%,100%{transform:scale(1);}
-    50%{transform:scale(1.1);}
+  0%,100%{transform:scale(1) rotate(-45deg)}
+  50%{transform:scale(1.15) rotate(-45deg)}
 }
 
-@keyframes show{
-    100%{opacity:1;}
+/* ================= TEXT ================= */
+.love-text{
+  position:absolute;
+  bottom:25px;
+  width:100%;
+  text-align:center;
+  font-size:28px;
+  color:crimson;
+  opacity:0;
+  animation:fade 2s forwards;
+  animation-delay:6s;
+}
+@keyframes fade{to{opacity:1}}
+
+/* ================= PETALS ================= */
+.petal{
+  position:absolute;
+  top:-20px;
+  font-size:18px;
+  opacity:.8;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  to{transform:translateY(600px) rotate(360deg)}
+}
+
+/* ================= FIREWORK ================= */
+.firework{
+  position:absolute;
+  width:6px;height:6px;
+  border-radius:50%;
+  box-shadow:
+    0 0 crimson,
+    20px 0 hotpink,
+    -20px 0 red,
+    0 20px pink,
+    0 -20px deeppink,
+    15px 15px crimson,
+    -15px -15px hotpink;
+  animation:explode 1.2s ease-out forwards;
+}
+@keyframes explode{
+  to{transform:scale(2.5);opacity:0}
+}
+
+/* ================= BUTTONS ================= */
+.controls{
+  position:absolute;
+  top:15px;right:15px;
+}
+button{
+  padding:8px 14px;
+  border:none;
+  border-radius:20px;
+  background:crimson;
+  color:white;
+  cursor:pointer;
+}
+button:hover{background:darkred}
+
+/* ================= MOBILE ================= */
+@media(max-width:600px){
+  .scene{height:540px}
+  .teddy{left:15px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="scene">
-    <div class="teddy">🧸🤍</div>
+<div class="scene" id="scene">
 
-    <div class="big-heart">
-        <div class="heart h1"></div><div class="heart h2"></div>
-        <div class="heart h3"></div><div class="heart h4"></div>
-        <div class="heart h5"></div><div class="heart h6"></div>
-        <div class="heart h7"></div><div class="heart h8"></div>
-        <div class="heart h9"></div><div class="heart h10"></div>
-        <div class="heart h11"></div><div class="heart h12"></div>
-        <div class="heart h13"></div><div class="heart h14"></div>
+  <div class="controls">
+    <button onclick="toggleMusic()">🎶 Music</button>
+    <button onclick="restart()">🔁 Replay</button>
+  </div>
+
+  <!-- TEDDY -->
+  <div class="teddy">
+    <div class="t-head">
+      <div class="eye l"></div>
+      <div class="eye r"></div>
+      <div class="nose"></div>
     </div>
+    <div class="hand"></div>
+    <div class="t-body"></div>
+  </div>
 
-    <div class="text">Happy Valentine’s Day ❤️</div>
+  <!-- HEART AREA -->
+  <div class="heart-area" id="heartArea"></div>
+
+  <!-- TEXT -->
+  <div class="love-text" id="loveText"></div>
 </div>
+
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const name = prompt("Enter name 💖");
+document.getElementById("loveText").innerHTML = `I Love You, ${name} ❤️`;
+
+const positions=[
+ [60,0],[100,0],[160,0],[200,0],
+ [30,30],[60,30],[100,30],[140,30],[180,30],[220,30],
+ [60,60],[100,60],[140,60],[180,60],
+ [100,100],[140,100],
+ [120,140]
+];
+
+const scene=document.getElementById("scene");
+const area=document.getElementById("heartArea");
+let i=0;
+
+function flyHeart(){
+ if(i>=positions.length){
+   setTimeout(()=>fireworks(),800);
+   return;
+ }
+ const h=document.createElement("div");
+ h.className="heart";
+ h.style.left="140px";
+ h.style.top="300px";
+ scene.appendChild(h);
+
+ const[x,y]=positions[i++];
+ setTimeout(()=>{
+   h.style.transition="1s ease";
+   h.style.left=area.offsetLeft+x+"px";
+   h.style.top=area.offsetTop+y+"px";
+ },50);
+
+ setTimeout(()=>{
+   h.classList.add("fixed");
+   area.appendChild(h);
+   h.style.left=x+"px";
+   h.style.top=y+"px";
+ },1100);
+
+ setTimeout(flyHeart,250);
+}
+
+function fireworks(){
+ for(let f=0;f<6;f++){
+   const fw=document.createElement("div");
+   fw.className="firework";
+   fw.style.left=(scene.offsetWidth/2+Math.random()*120-60)+"px";
+   fw.style.top=(scene.offsetHeight/2+Math.random()*100-50)+"px";
+   scene.appendChild(fw);
+   setTimeout(()=>fw.remove(),1200);
+ }
+}
+
+function restart(){
+ area.innerHTML="";
+ document.querySelectorAll(".heart").forEach(h=>h.remove());
+ i=0;
+ flyHeart();
+}
+
+flyHeart();
+
+/* PETALS */
+setInterval(()=>{
+ const p=document.createElement("div");
+ p.className="petal";
+ p.innerHTML="🌸";
+ p.style.left=Math.random()*scene.offsetWidth+"px";
+ p.style.animationDuration=6+Math.random()*4+"s";
+ scene.appendChild(p);
+ setTimeout(()=>p.remove(),10000);
+},700);
+
+/* MUSIC */
+const music=document.getElementById("music");
+function toggleMusic(){
+ music.paused?music.play():music.pause();
+}
+</script>
 
 </body>
 </html>
