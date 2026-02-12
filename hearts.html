@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Love Surprise 💗</title>
+<style>
+body{
+    margin:0;
+    background:#111;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial;
+}
+
+.scene{
+    width:560px;
+    height:320px;
+    background:#f7f6f2;
+    border-radius:30px;
+    position:relative;
+    overflow:hidden;
+}
+
+.teddy{
+    position:absolute;
+    left:25px;
+    bottom:40px;
+    font-size:65px;
+}
+
+.big-heart{
+    position:absolute;
+    left:250px;
+    top:55px;
+    animation:pulse 2s infinite 6s;
+}
+
+.heart{
+    width:12px;
+    height:12px;
+    background:crimson;
+    position:absolute;
+    transform:rotate(-45deg);
+    opacity:0;
+    animation:fly 6s infinite;
+}
+.heart::before,.heart::after{
+    content:"";
+    width:12px;
+    height:12px;
+    background:crimson;
+    border-radius:50%;
+    position:absolute;
+}
+.heart::before{top:-6px;left:0;}
+.heart::after{left:6px;top:0;}
+
+/* heart positions */
+.h1{top:20px;left:40px;animation-delay:0s;}
+.h2{top:20px;left:60px;animation-delay:.2s;}
+.h3{top:20px;left:80px;animation-delay:.4s;}
+.h4{top:20px;left:100px;animation-delay:.6s;}
+.h5{top:35px;left:25px;animation-delay:.8s;}
+.h6{top:35px;left:45px;animation-delay:1s;}
+.h7{top:35px;left:65px;animation-delay:1.2s;}
+.h8{top:35px;left:85px;animation-delay:1.4s;}
+.h9{top:35px;left:105px;animation-delay:1.6s;}
+.h10{top:50px;left:55px;animation-delay:1.8s;}
+.h11{top:50px;left:75px;animation-delay:2s;}
+.h12{top:65px;left:65px;animation-delay:2.2s;}
+.h13{top:80px;left:75px;animation-delay:2.4s;}
+.h14{top:95px;left:75px;animation-delay:2.6s;}
+
+.text{
+    position:absolute;
+    bottom:25px;
+    width:100%;
+    text-align:center;
+    font-size:24px;
+    color:#e38aa0;
+    opacity:0;
+    animation:show 6s forwards;
+}
+
+@keyframes fly{
+    0%{transform:translate(-190px,120px) rotate(-45deg) scale(0);opacity:0;}
+    40%{opacity:1;}
+    100%{opacity:1;transform:translate(0,0) rotate(-45deg) scale(1);}
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+}
+
+@keyframes show{
+    100%{opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+    <div class="teddy">🧸🤍</div>
+
+    <div class="big-heart">
+        <div class="heart h1"></div><div class="heart h2"></div>
+        <div class="heart h3"></div><div class="heart h4"></div>
+        <div class="heart h5"></div><div class="heart h6"></div>
+        <div class="heart h7"></div><div class="heart h8"></div>
+        <div class="heart h9"></div><div class="heart h10"></div>
+        <div class="heart h11"></div><div class="heart h12"></div>
+        <div class="heart h13"></div><div class="heart h14"></div>
+    </div>
+
+    <div class="text">Happy Valentine’s Day ❤️</div>
+</div>
+
+</body>
+</html>
